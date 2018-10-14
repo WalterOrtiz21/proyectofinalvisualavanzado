@@ -1,0 +1,10 @@
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\bin\Debug\AccesoDatos.xml
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.vbprojAssemblyReference.cache
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.Resources.resources
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.vbproj.GenerateResource.cache
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.vbproj.CoreCompileInputs.cache
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.xml
+C:\Users\Jorge Caceres\Documents\visualproject\RegistroTutoria\AccesoDatos\obj\Debug\AccesoDatos.pdb
