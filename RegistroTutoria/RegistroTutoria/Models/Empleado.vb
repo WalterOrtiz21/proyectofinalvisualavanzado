@@ -59,7 +59,22 @@
         Set(value As String)
             Email = value
         End Set
+
     End Property
+
+
+    Public Shared Function GetEmpleados() As DataTable
+
+        Return Util.gDatos.TraerDataTable("spListarProfesores")
+
+    End Function
+
+    Public Shared Function GetEmpleado() As DataTable
+
+        Return Util.gDatos.TraerDataTable("sp")
+
+    End Function
+
 End Class
 
 Public Class Decano

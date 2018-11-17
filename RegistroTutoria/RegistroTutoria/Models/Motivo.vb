@@ -19,4 +19,10 @@
             Descripcion = value
         End Set
     End Property
+
+    Public Shared Function ObtenerMotivos() As DataTable
+
+        Return Util.gDatos.TraerDataTable("spObtenerMotivos")
+
+    End Function
 End Class

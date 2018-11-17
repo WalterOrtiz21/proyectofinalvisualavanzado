@@ -162,3 +162,5 @@ C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\Reg
 C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\RegistroTutoria\obj\Debug\RegistroTutoria.dll
 C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\RegistroTutoria\obj\Debug\RegistroTutoria.xml
 C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\RegistroTutoria\obj\Debug\RegistroTutoria.pdb
+C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\RegistroTutoria\bin\Newtonsoft.Json.dll
+C:\Users\Jorge Caceres\Documents\proyectofinalvisualavanzado\RegistroTutoria\RegistroTutoria\bin\Newtonsoft.Json.xml

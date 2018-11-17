@@ -80,7 +80,7 @@ End Code
             </tbody>
         </table>
     </div>
-        <script src="~/scripts/js/jquery-3.3.1.min.js"></script>
+        <script src="~/scripts/jquery-3.3.1.min.js"></script>
         <script src="~/scripts/js/bootstrap.min.js"></script>
     </body>
 </html>

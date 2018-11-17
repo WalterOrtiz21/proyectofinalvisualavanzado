@@ -50,4 +50,22 @@
             CodigoMotivo = value
         End Set
     End Property
+
+    Public Shared Function ObtenerActividad() As DataTable
+
+        Return Util.gDatos.TraerDataTable("spObtenerActividades")
+
+    End Function
+
+End Class
+
+Public Class Area
+
+
+    Public Shared Function ObtenerArea() As DataTable
+
+        Return Util.gDatos.TraerDataTable("spObtenerArea")
+
+    End Function
+
 End Class

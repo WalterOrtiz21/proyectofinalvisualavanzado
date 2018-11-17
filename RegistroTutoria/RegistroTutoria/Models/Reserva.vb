@@ -4,6 +4,7 @@
     Private CodigoHorario As Integer
     Private CodigoEmpleado As Integer
     Private CodigoAlumno As Integer
+    Private Hora As String
     Private Fecha As DateTime
     Private CodigoArea As Integer
     Private CodigoEstado As Integer
@@ -80,4 +81,41 @@
             CodigoMotivo = value
         End Set
     End Property
+
+    Public Property Hora1 As String
+        Get
+            Return Hora
+        End Get
+        Set(value As String)
+            Hora = value
+        End Set
+    End Property
+
+    Public Function GetReservas(hora As String, fecha As DateTime) As DataTable
+
+        Return Util.gDatos.TraerDataTable("spListarReservas", hora, fecha)
+
+
+    End Function
+
+
+    Sub GuardarReserva()
+
+        Util.gDatos.Ejecutar("spGuardarReserva", Me.CodigoAlumno, Me.CodigoReserva, Me.Fecha, Me.Hora, Me.CodigoEmpleado)
+
+    End Sub
+
+    Public Shared Function ConsultarDiasDisponibles(dia As String) As DataTable
+
+        Return Util.gDatos.TraerDataTable("spListarDiasDisponibles", dia)
+
+    End Function
+
+    Public Shared Function ConsultarReservasEmpleado(empleado As Integer, disp As Integer) As DataTable
+
+        Return Util.gDatos.TraerDataTable("spListarReservasEmpleado", disp, empleado)
+
+    End Function
+
+
 End Class

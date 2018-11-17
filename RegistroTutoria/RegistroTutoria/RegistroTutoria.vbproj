@@ -46,6 +46,9 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -127,7 +130,7 @@
     <Content Include="scripts\js\bootstrap.bundle.min.js" />
     <Content Include="scripts\js\bootstrap.js" />
     <Content Include="scripts\js\bootstrap.min.js" />
-    <Content Include="scripts\js\jquery-3.3.1.min.js" />
+    <Content Include="scripts\jquery-3.3.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -136,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\AlumnoController.vb" />
     <Compile Include="Controllers\HomeController.vb" />
+    <Compile Include="Controllers\ReservaController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,6 +210,9 @@
     <Content Include="scripts\js\bootstrap.min.js.map" />
     <Content Include="Views\Alumno\CreateStudent.vbhtml" />
     <Content Include="Views\Alumno\EditStudent.vbhtml" />
+    <Content Include="Plantilla\Plantilla.vbhtml" />
+    <Content Include="Views\Reserva\Index.vbhtml" />
+    <Content Include="Views\Reserva\Procesar.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
