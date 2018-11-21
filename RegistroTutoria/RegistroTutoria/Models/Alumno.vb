@@ -126,4 +126,10 @@ Public Class Alumno
 
 
     End Function
+
+    Public Shared Function GetAlumnoPorDocumento(documento As String) As DataTable
+
+        Return gDatos.TraerDataTable("spObtenerAlumno", documento)
+
+    End Function
 End Class
