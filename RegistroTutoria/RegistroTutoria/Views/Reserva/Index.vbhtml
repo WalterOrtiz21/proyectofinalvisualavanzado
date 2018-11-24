@@ -9,10 +9,77 @@ End Code
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/scripts/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link href="https://fonts.googleapis.com/css?family=Quicksand|Rubik" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">
 
     <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+            .active, .accordion:hover {
+                background-color: #ccc;
+            }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: darkred;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
         table {
             font-family: 'Quicksand', sans-serif;
         }
@@ -22,93 +89,50 @@ End Code
             }
 
         body {
-            font-family: 'Rubik', sans-serif;
-            background-image: url("~/Resources/fondo.jpg");
+            font-family: 'Niramit', sans-serif;
             background-color: #cccccc;
+            transition: background-color .5s;
+        }
+
+        .bg-company-red {
+            background-color: darkred;
         }
     </style>
-    <title>R.T. - Reserva </title>
 </head>
 <body>
 
+    <h2>Accordion</h2>
 
-    <div class="text-center">
-        <h1 class="h1">Registro de tutoria</h1>
-        <h3 class="h3">Reserva - Paso 1</h3>
-        <h4 class="h4">Listado de disponbilidad de todos los empleados por dia</h4>
-
-        <div class="btn-group">
-            <a href="~/Home/Index" class="btn btn-primary">Inicio</a>
-            <div class="form-group row">
-                <label for="cliente" class="col-sm-2 col-form-label">Dia</label>
-                <div class="col-sm-12 col-lg-4">
-                    <select class="form-control" id="cboDia" name="cboDia" onchange="ConsultarDias()">
-                        <option value="Lunes">Lunes</option>
-                        <option value="Martes">Martes</option>
-                        <option value="Miercoles">Miercoles</option>
-                        <option value="Jueves">Jueves</option>
-                        <option value="Viernes">Viernes</option>
-                    </select>
-                </div>
-            </div>
-            @*<a href="~/Alumno/EditStudent" class="btn btn-success">Modificar Datos</a>*@
-
-        </div>
-        <br />
-        <br />
-
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <Table Class="table table-striped table-hover table-bordered">
-        <thead>
-            <tr>
-                <th> Empleado</th>
-                <th> Dia</th>
-                <th> Inicio</th>
-                <th> Fin</th>
-            </tr>
-        </thead>
-        <tbody id="planilla"></tbody>
-    </Table>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
 
-    <script src="~/scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/scripts/js/bootstrap.min.js"></script>
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
 
-    <script type="text/javascript">
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-        function ConsultarDias() {
-
-            var parametro = { dia: $("#cboDia").val() };
-
-
-
-            $.ajax({
-                type: "POST",
-                url: '/Reserva/ObtenerDiasDisponibles',
-                data: parametro,
-                dataType: "json",
-                success: function (msg) {
-                    alert("Llamada exitosa");
-                    var datos = jQuery.parseJSON(msg);
-                    var row = "";
-                    for (i = 0; i < datos.length; i++) {
-                        row += "<tr>" +
-                            "<td>" + datos[i].NombreApellido +
-                            "</td><td>" + datos[i].Dia +
-                            "</td><td>" + datos[i].Inicio +
-                            "</td><td>" + datos[i].Fin +
-                            "</td><td><a href='../../Reserva/Procesar/?empleado=" + datos[i].CodigoEmpleado + "&disp=" + datos[i].CodigoDisponibilidad + "'>Seleccionar</a> </td></tr>";
-                    }
-                    $("#planilla").html(row);
-                },
-                error: function () {
-                    alert("se ha producido un error cargar planilla.");
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
                 }
             });
-
         }
-
-
     </script>
 </body>
 </html>

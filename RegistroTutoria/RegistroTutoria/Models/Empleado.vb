@@ -75,6 +75,12 @@
 
     End Function
 
+    Public Shared Function CargarEmpleadosLista() As DataTable
+
+        Return Util.gDatos.TraerDataTable("spCargarEmpleados")
+
+    End Function
+
 End Class
 
 Public Class Decano

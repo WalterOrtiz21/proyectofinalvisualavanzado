@@ -94,12 +94,12 @@ End Code
             <span class="navbar-text form-inline" style="color:white;">Registro de Tutoria</span>
         </span>
     </nav>
-    <h1 class="h1">@ViewData("mensaje")</h1>
+    <h3 class="h3 text-center">@ViewData("mensaje")</h3>
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Inicio</a>
-        <a href="#">Alumno</a>
+        <a href="~/Home/Index">Inicio</a>
+        <a href="~/Alumno/Index">Alumno</a>
         <a href="#">Mis reservas</a>
         <a href="#">Contacto</a>
     </div>

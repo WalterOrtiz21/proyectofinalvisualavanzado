@@ -127,5 +127,32 @@
 
     End Function
 
+    Public Shared Function ObtenerReservasDelDia(dia As String, empleado As Integer) As Integer
+
+        Dim dt As New DataTable
+
+        Dim reservasDia As Integer
+        Dim reservasDisponibles As Integer
+        Dim resto As integer
+
+        dt = Util.gDatos.TraerDataTable("ObtenerCantidadReservas", dia, empleado)
+
+        If dt.Rows.Count > 0 Then
+            reservasDia = Convert.ToInt32(dt.Rows(0).Item("Reservas").ToString())
+        End If
+        dt = New DataTable
+        dt = Util.gDatos.TraerDataTable("spObtenerHorariosDisponibles", dia, empleado)
+
+        If dt.Rows.Count > 0 Then
+
+            reservasDisponibles = Convert.ToInt32(dt.Rows(0).Item("Horas Disponibles").ToString())
+
+        End If
+
+        resto = reservasDisponibles - reservasDia
+
+        Return resto
+    End Function
+
 
 End Class

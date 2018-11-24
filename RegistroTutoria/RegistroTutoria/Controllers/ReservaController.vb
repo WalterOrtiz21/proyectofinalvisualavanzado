@@ -11,6 +11,12 @@ Namespace Controllers
 
         End Function
 
+        Function RegistrarReserva() As ActionResult
+
+            Return View()
+
+        End Function
+
 
         Function GetEmpleados() As JsonResult
 
@@ -31,33 +37,41 @@ Namespace Controllers
         End Function
 
         <HttpGet()>
-        Function Procesar(empleado As Integer, disp As Integer) As ActionResult
-
-            ''recibir los parametros y ejecutar el sp en base a los mismos
-            Try
-
-                Dim dt As New DataTable
-
-                dt = Reserva.ConsultarReservasEmpleado(empleado, disp)
-
-                ViewData("disponibilidad") = disp
-
-                ViewData("listaReservas") = dt.AsEnumerable
-
-                dt = Motivo.ObtenerMotivos()
-
-                ViewData("listaMotivos") = dt.AsEnumerable
-
-                dt = Area.ObtenerArea()
-
-                ViewData("listaAreas") = dt.AsEnumerable
-
-            Catch ex As Exception
-                Throw ex
-            End Try
+        Function Procesar(empleado As Integer, disp As Integer, dia As String) As ActionResult
 
 
+            Dim reservaDisponibles As Integer
+            reservaDisponibles = Reserva.ObtenerReservasDelDia(dia, empleado)
 
+            If reservaDisponibles > 0 Then
+                ''recibir los parametros y ejecutar el sp en base a los mismos
+                Try
+
+                    ViewData("disponibilidadHorarios") = Disponibilidad.ObtenerHorariosPorDisponibilidad(disp)
+
+                    ViewData("reservasDisponibles") = reservaDisponibles
+                    Dim dt As New DataTable
+
+                    ''dt = Reserva.ConsultarReservasEmpleado(empleado, disp)
+
+                    ViewData("disponibilidad") = disp
+
+                    ''ViewData("listaReservas") = dt.AsEnumerable
+
+                    dt = Motivo.ObtenerMotivos()
+
+                    ViewData("listaMotivos") = dt.AsEnumerable
+
+                    dt = Area.ObtenerArea()
+
+                    ViewData("listaAreas") = dt.AsEnumerable
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            Else
+                Throw New Exception()
+            End If
             ''retornar una tabla con la lista de reservas para ese empleado en particular
             Return View()
 
@@ -83,11 +97,27 @@ Namespace Controllers
                 reserva.CodigoDisponibilidad1 = formulario("disponibilidad")
                 reserva.CodigoMotivo1 = formulario("cboMotivo")
                 reserva.GuardarReserva()
-                ViewData("mensaje") = "Su reserva ha sido registrada con éxito"
+                ViewData("mensaje") = "¡Su reserva ha sido registrada con éxito!"
             Catch Ex As Exception
                 ViewData("mensaje") = "Disculpe los inconvenientes, intente de nuevo más tarde"
 
             End Try
+
+            Return View()
+
+        End Function
+
+        <HttpGet>
+        Public Function EmpleadoConReserva() As ActionResult
+
+            ViewData("listaEmpleados") = Empleado.CargarEmpleadosLista().AsEnumerable
+            Return View()
+
+        End Function
+
+        Public Function ListarReservas() As ActionResult
+
+            ''llamar al sp que liste las reservas despues del dia de hoy y con todos los profesores
 
             Return View()
 

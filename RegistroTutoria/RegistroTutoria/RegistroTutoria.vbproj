@@ -2126,6 +2126,8 @@
     <Content Include="scripts\vendor\prismjs\components.json" />
     <Content Include="Views\Plantillas\Plantilla.vbhtml" />
     <Content Include="Views\Reserva\Guardar.vbhtml" />
+    <Content Include="Views\Reserva\EmpleadoConReserva.vbhtml" />
+    <Content Include="Views\Reserva\RegistrarReserva.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2142,7 +2144,6 @@
     <Folder Include="scripts\vendor\chart.js\dist\docs\" />
     <Folder Include="scripts\vendor\holderjs\src\" />
     <Folder Include="scripts\vendor\holderjs\test\" />
-    <Folder Include="Views\Homr\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.vbproj">
